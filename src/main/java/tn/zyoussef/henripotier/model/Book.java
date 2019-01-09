@@ -7,7 +7,7 @@ public class Book {
     private String title;
     private int price;
     private String cover;
-    private List<String> synposis ;
+    private List<String> synopsis ;
 
     public Book() {
 
@@ -18,7 +18,7 @@ public class Book {
         this.title = title;
         this.price = price;
         this.cover = cover;
-        this.synposis = synposis;
+        this.synopsis = synposis;
     }
 
     public String getIsbn() {
@@ -53,11 +53,11 @@ public class Book {
         this.cover = cover;
     }
 
-    public List<String> getSynposis() {
-        return synposis;
+    public List<String> getSynopsis() {
+        return synopsis;
     }
 
-    public void setSynposis(List<String> synposis) {
-        this.synposis = synposis;
+    public void setSynopsis(List<String> synopsis) {
+        this.synopsis = synopsis;
     }
 }
