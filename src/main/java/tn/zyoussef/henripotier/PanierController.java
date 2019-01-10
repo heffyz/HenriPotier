@@ -12,7 +12,7 @@ import java.util.List;
 @CrossOrigin
 public class PanierController {
     private List<Product> panier;
-    private static List<Book> books;
+    private List<Book> books;
 
     public PanierController() {
         books = new ArrayList<>();
@@ -21,6 +21,7 @@ public class PanierController {
 
     @RequestMapping(value = "/book",method = RequestMethod.POST)
     public void getBooks(@RequestBody Book book){
+        if(!books.contains(book))
         books.add(book);
     }
     @RequestMapping(value = "/add",method = RequestMethod.POST)
@@ -57,5 +58,14 @@ public class PanierController {
     @RequestMapping(value = "/show",method = RequestMethod.GET)
     public List<Product> getPanier(){
         return panier;
+    }
+    @RequestMapping(value = "book/{id}",method = RequestMethod.GET)
+    public Book getBookById(@RequestParam("id") String id){
+        for (Book b: books) {
+            if(b.getIsbn().equals(id)){
+                return b;
+            }
+        }
+        return null;
     }
 }
